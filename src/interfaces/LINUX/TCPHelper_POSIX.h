@@ -340,7 +340,7 @@ public:
     _localaddr.sin_family = AF_INET;
     _localaddr.sin_port = htons(_port);
     _localaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    if (bind(_fd,(struct sockaddr *) &_localaddr,sizeof(_localaddr))==-1) {
+    if (::bind(_fd,(struct sockaddr *) &_localaddr,sizeof(_localaddr))==-1) {
       #ifdef ETCP_ERROR_PRINT
       printf("bind failed: %s\n", strerror(errno));
       #endif
